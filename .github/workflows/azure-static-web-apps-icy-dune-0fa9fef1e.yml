@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'api'
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
   DOTNET_VERSION: '6.0.x'
   APP_LOCATION: "/" # location of your client code
   OUTPUT_LOCATION: "/" # location of client code build output
@@ -36,7 +36,7 @@ jobs:
       - name: Check Out Repo
         uses: actions/checkout@v3
       - name: Setup DotNet
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
       - name: Build Azure Function
@@ -47,6 +47,7 @@ jobs:
           popd
       - name: Deploy Azure Function
         uses: Azure/functions-action@v1
+        id: fa
         with:
           app-name: 'contactformwithazureVentil8'
           slot-name: 'Production'
