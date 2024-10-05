@@ -36,7 +36,7 @@ namespace ContactForm.SendEmails
                     wait: WaitUntil.Completed,
                     senderAddress: senderEmailAddress,
                     recipientAddress: myEmailAddress,
-                    subject: $"New message in the website from {name} ({email})",
+                    subject: $"New message from TrevorBollen Art website from {name} ({email})",
                     htmlContent: "<html><body>" + name + " with email address " + email + " sent the following message: <br />" + message + "</body></html>");
                 log.LogInformation($"Email sent with message ID: {selfEmailSendOperation.Id} and status: {selfEmailSendOperation.Value.Status}");
                 //Email to notify the contact
@@ -44,8 +44,8 @@ namespace ContactForm.SendEmails
                     wait: WaitUntil.Completed,
                     senderAddress: senderEmailAddress,
                     recipientAddress: email,
-                    subject: $"Email sent. Thank you for reaching out.",
-                    htmlContent: "Hello " + name + " thank you for your message. Will try to get back you as soon as possible.");
+                    subject: $"Email sent. Thank you for contacting Trevor Bollen.",
+                    htmlContent: "Hello " + name + " thank you for your message. If requested, we will try to get back you as soon as possible.");
                 log.LogInformation($"Email sent with message ID: {contactEmailSendOperation.Id} and status: {contactEmailSendOperation.Value.Status}");
                 return new OkObjectResult($"Emails sent.");
             }
