@@ -4,7 +4,7 @@ on:
     branches:
       - main
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.'
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: 'api'
   DOTNET_VERSION: '6.0.x'
   APP_LOCATION: "/" # location of your client code
   OUTPUT_LOCATION: "/" # location of client code build output
