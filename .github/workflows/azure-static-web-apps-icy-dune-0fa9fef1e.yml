@@ -22,7 +22,7 @@ jobs:
           api_location: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}'
           output_location: ''
   build-and-deploy-azure-function:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Check Out Repo
         uses: actions/checkout@v2
